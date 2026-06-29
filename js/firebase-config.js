@@ -15,18 +15,18 @@ import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-aut
 
 // Default / fallback Firebase configuration (should be populated via env files)
 export let firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: '',
-  appId: '',
-  measurementId: '',
+  apiKey: 'AIzaSyAGYgf8R87l7Zz8mPESs6kL2ykMl_-HMYw',
+  authDomain: 'applikatalc.firebaseapp.com',
+  projectId: 'applikatalc',
+  storageBucket: 'applikatalc.firebasestorage.app',
+  messagingSenderId: '354767168884',
+  appId: '1:354767168884:web:1b4929126e0b14b8d3b821',
+  measurementId: 'G-95YGFE5H15',
 };
 
 // Default / fallback Admin credentials (should be populated via env files)
-export let adminEmail = '';
-export let adminPassword = '';
+export let adminEmail = 'applikata@study.edu';
+export let adminPassword = '2011appli-kata2026';
 
 export let db = null;
 export let auth = null;
