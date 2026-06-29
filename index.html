@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="description" content="Applikata — zamonaviy ta'lim markazi. Matematika, ingliz tili, fizika va boshqa kurslar. Bilimingizni keyingi bosqichga olib chiqing." />
+  <meta name="keywords" content="Applikata, ta'lim markazi, kurslar, ingliz tili, matematika, o'quv markaz" />
+  <meta property="og:title" content="Applikata — Zamonaviy ta'lim markazi" />
+  <meta property="og:description" content="Bilimingizni keyingi bosqichga olib chiqing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://applikata.uz" />
+  <title>Applikata — Zamonaviy ta'lim markazi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ============ BACKGROUND DECOR ============ -->
+  <div class="bg-decor" aria-hidden="true">
+    <div class="blur-orb orb-1"></div>
+    <div class="blur-orb orb-2"></div>
+    <div class="blur-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand" aria-label="Applikata">
+        <img src="assets/logo.png" alt="Applikata" class="brand-logo" width="34" height="34" />
+        <span class="brand-name">applikata</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">Biz haqimizda</a>
+        <a href="#advantages" data-i18n="nav.advantages">Afzalliklar</a>
+        <a href="#courses" data-i18n="nav.courses">Kurslar</a>
+        <a href="#teachers" data-i18n="nav.teachers">O'qituvchilar</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="#contact" data-i18n="nav.contact">Aloqa</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch">
+          <button data-lang="uz" class="active">UZ</button>
+          <button data-lang="ru">RU</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <a href="#apply" class="btn btn-primary btn-sm" data-i18n="nav.apply">Ariza topshirish</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-badge reveal">
+          <span class="dot"></span>
+          <span data-i18n="hero.badge">2024 yildan beri ishonchli ta'lim</span>
+        </div>
+        <h1 class="hero-title reveal" data-i18n="hero.title">
+          Bilimingizni <span class="grad-text">keyingi bosqichga</span> olib chiqing
+        </h1>
+        <p class="hero-sub reveal" data-i18n="hero.subtitle">
+          Applikata — zamonaviy metodikalar, tajribali o'qituvchilar va shaxsiy yondashuv asosida qurilgan ta'lim markazi.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#apply" class="btn btn-primary btn-lg" data-i18n="hero.cta">Hoziroq boshlash</a>
+          <a href="#courses" class="btn btn-ghost btn-lg" data-i18n="hero.secondary">Kurslarni ko'rish</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="hstat"><strong data-count="1200">0</strong><span data-i18n="hero.stat1">O'quvchi</span></div>
+          <div class="hstat"><strong data-count="40">0</strong><span data-i18n="hero.stat2">O'qituvchi</span></div>
+          <div class="hstat"><strong data-count="7">0</strong><span data-i18n="hero.stat3">Yo'nalish</span></div>
+          <div class="hstat"><strong data-count="98" data-suffix="%">0</strong><span data-i18n="hero.stat4">Mamnunlik</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="about.eyebrow">Biz haqimizda</span>
+          <h2 data-i18n="about.title">Ta'lim — bizning ishtiyoqimiz</h2>
+          <p data-i18n="about.subtitle">Biz har bir o'quvchining salohiyatini ochishga yordam beramiz.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card glass reveal">
+            <h3 data-i18n="about.mission.title">Bizning missiyamiz</h3>
+            <p data-i18n="about.mission.text">Sifatli va zamonaviy ta'limni har bir o'quvchi uchun ochiq qilish. Biz nafaqat bilim, balki kelajakka ishonch beramiz.</p>
+          </div>
+          <div class="about-card glass reveal">
+            <h3 data-i18n="about.vision.title">Bizning maqsadimiz</h3>
+            <p data-i18n="about.vision.text">Mintaqadagi eng yaxshi ta'lim ekotizimini yaratish — texnologiya va inson e'tibori uyg'unligida.</p>
+          </div>
+          <div class="about-card glass reveal">
+            <h3 data-i18n="about.values.title">Qadriyatlarimiz</h3>
+            <p data-i18n="about.values.text">Halollik, natijaga yo'naltirilganlik, individual yondashuv va doimiy rivojlanish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ADVANTAGES ============ -->
+    <section class="section" id="advantages">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="adv.eyebrow">Nega aynan biz</span>
+          <h2 data-i18n="adv.title">Afzalliklarimiz</h2>
+          <p data-i18n="adv.subtitle">Applikata sizga eng yaxshi ta'lim tajribasini taqdim etadi.</p>
+        </div>
+        <div class="adv-grid" id="advGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ COURSES ============ -->
+    <section class="section" id="courses">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="courses.eyebrow">Yo'nalishlar</span>
+          <h2 data-i18n="courses.title">Bizning kurslarimiz</h2>
+          <p data-i18n="courses.subtitle">O'zingizga mos yo'nalishni tanlang va bugun boshlang.</p>
+        </div>
+        <div class="courses-grid" id="coursesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ TEACHERS ============ -->
+    <section class="section" id="teachers">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="teachers.eyebrow">Jamoamiz</span>
+          <h2 data-i18n="teachers.title">Tajribali o'qituvchilar</h2>
+          <p data-i18n="teachers.subtitle">Bizning ustozlarimiz — o'z sohasining mutaxassislari.</p>
+        </div>
+        <div class="teachers-grid" id="teachersGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="reviews.eyebrow">Fikrlar</span>
+          <h2 data-i18n="reviews.title">O'quvchilarimiz nima deydi</h2>
+        </div>
+        <div class="reviews-grid" id="reviewsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ STATISTICS ============ -->
+    <section class="section stats-section" id="statistics">
+      <div class="container">
+        <div class="stats-band glass reveal">
+          <div class="sbig"><strong data-count="1200" data-suffix="+">0</strong><span data-i18n="stats.students">Baxtli o'quvchilar</span></div>
+          <div class="sbig"><strong data-count="320" data-suffix="+">0</strong><span data-i18n="stats.graduates">Bitiruvchilar</span></div>
+          <div class="sbig"><strong data-count="40" data-suffix="+">0</strong><span data-i18n="stats.teachers">O'qituvchilar</span></div>
+          <div class="sbig"><strong data-count="15" data-suffix="+">0</strong><span data-i18n="stats.awards">Mukofotlar</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="faq.eyebrow">Savol-javob</span>
+          <h2 data-i18n="faq.title">Tez-tez so'raladigan savollar</h2>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </div>
+    </section>
+
+    <!-- ============ APPLY FORM ============ -->
+    <section class="section" id="apply">
+      <div class="container narrow">
+        <div class="apply-card glass reveal">
+          <div class="apply-head">
+            <span class="eyebrow" data-i18n="apply.eyebrow">Ariza</span>
+            <h2 data-i18n="apply.title">Hoziroq ariza qoldiring</h2>
+            <p data-i18n="apply.subtitle">Ma'lumotlaringizni qoldiring, administratorlarimiz tez orada siz bilan bog'lanadi.</p>
+          </div>
+
+          <form class="apply-form" id="applyForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label data-i18n="apply.name">Ism</label>
+                <input type="text" name="name" required data-i18n-ph="apply.namePh" placeholder="Ismingiz" />
+              </div>
+              <div class="field">
+                <label data-i18n="apply.phone">Telefon</label>
+                <input type="tel" name="phone" required placeholder="+998 90 123 45 67" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label data-i18n="apply.telegram">Telegram</label>
+                <input type="text" name="telegram" placeholder="@username" />
+              </div>
+              <div class="field">
+                <label data-i18n="apply.age">Yosh</label>
+                <input type="number" name="age" min="5" max="99" placeholder="18" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label data-i18n="apply.course">Qiziqtirgan kurs</label>
+                <select name="course" id="applyCourse" required></select>
+              </div>
+              <div class="field">
+                <label data-i18n="apply.lang">Til</label>
+                <select name="language" id="applyLang">
+                  <option value="uz">O'zbek</option>
+                  <option value="ru">Русский</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label data-i18n="apply.comment">Izoh</label>
+              <textarea name="comment" rows="3" data-i18n-ph="apply.commentPh" placeholder="Qo'shimcha ma'lumot..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="applySubmit">
+              <span class="btn-label" data-i18n="apply.submit">Arizani yuborish</span>
+              <span class="btn-spinner" hidden></span>
+            </button>
+            <p class="form-note" data-i18n="apply.note">Ma'lumotlaringiz maxfiy saqlanadi.</p>
+          </form>
+
+          <div class="apply-success" id="applySuccess" hidden>
+            <div class="success-icon">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ff7a00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 data-i18n="apply.successTitle">Arizangiz qabul qilindi!</h3>
+            <p data-i18n="apply.successText">Rahmat! Administratsiyamiz tez orada siz bilan bog'lanadi.</p>
+            <button class="btn btn-ghost" id="applyReset" data-i18n="apply.again">Yana ariza qoldirish</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <span class="eyebrow" data-i18n="contact.eyebrow">Aloqa</span>
+            <h2 data-i18n="contact.title">Biz bilan bog'laning</h2>
+            <p data-i18n="contact.subtitle">Savollaringiz bormi? Biz har doim yordam berishga tayyormiz.</p>
+            <ul class="contact-list">
+              <li><span class="ci-icon">📍</span><div><strong data-i18n="contact.addr">Manzil</strong><p>Toshkent, Amir Temur ko'chasi 1</p></div></li>
+              <li><span class="ci-icon">📞</span><div><strong data-i18n="contact.phone">Telefon</strong><p><a href="tel:+998953437778">+998 95 343 77 78</a></p></div></li>
+              <li><span class="ci-icon">✉️</span><div><strong>Email</strong><p><a href="mailto:info@applikata.uz">info@applikata.uz</a></p></div></li>
+              <li><span class="ci-icon">🕘</span><div><strong data-i18n="contact.hours">Ish vaqti</strong><p data-i18n="contact.hoursVal">Dush–Shan: 9:00 – 20:00</p></div></li>
+            </ul>
+            <div class="socials">
+              <a href="https://t.me/Jaqsimurat_matematika_repetitor" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
+              <a href="https://www.instagram.com/applikata_oqiw_orayi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            </div>
+          </div>
+          <div class="contact-map glass reveal">
+            <iframe
+              title="map"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=59.595%2C42.463%2C59.615%2C42.473&amp;layer=mapnik&amp;marker=42.46828094293194%2C59.60493937668792"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="assets/logo.png" alt="Applikata" width="30" height="30" />
+          <span class="brand-name">applikata</span>
+        </div>
+        <p data-i18n="footer.tagline">Zamonaviy ta'lim markazi. Bilim — kelajak kaliti.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav">Bo'limlar</h4>
+        <a href="#about" data-i18n="nav.about">Biz haqimizda</a>
+        <a href="#courses" data-i18n="nav.courses">Kurslar</a>
+        <a href="#teachers" data-i18n="nav.teachers">O'qituvchilar</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.platform">Platforma</h4>
+        <a href="https://study.applikata.uz" data-i18n="nav.login">Tizimga kirish</a>
+        <a href="#apply" data-i18n="nav.apply">Ariza topshirish</a>
+        <a href="#contact" data-i18n="nav.contact">Aloqa</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">Aloqa</h4>
+        <a href="tel:+998953437778">+998 95 343 77 78</a>
+        <a href="mailto:info@applikata.uz">info@applikata.uz</a>
+        <p>Toshkent, O'zbekiston</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="year"></span> Applikata. <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (Firebase modular via CDN) ============ -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <title data-i18n="admin.title">Applikata — Admin paneli</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* Admin-specific Styles */
+    .admin-main {
+      padding: 120px 0 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container {
+      max-width: 440px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .dashboard-container {
+      display: none; /* Shown dynamically via JS */
+      width: 100%;
+    }
+
+    .admin-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .admin-title-group h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .admin-title-group p {
+      color: var(--text-soft);
+      font-size: 15px;
+      margin-top: 4px;
+    }
+
+    .admin-user-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .admin-user-details {
+      text-align: right;
+    }
+
+    .admin-user-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .admin-user-role {
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Filters Layout */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+    }
+
+    .filter-pill {
+      background: transparent;
+      border: none;
+      color: var(--text-soft);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      font-family: inherit;
+    }
+
+    .filter-pill:hover {
+      color: var(--text);
+    }
+
+    .filter-pill.active {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .stats-summary {
+      font-size: 14px;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    /* Leads Grid */
+    .leads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 480px) {
+      .leads-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lead-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    }
+
+    .lead-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .lead-client-name {
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+
+    /* Badges */
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .badge-new {
+      background: rgba(255, 122, 0, 0.12);
+      border: 1px solid rgba(255, 122, 0, 0.25);
+      color: var(--orange);
+    }
+
+    .badge-contacted {
+      background: rgba(0, 149, 255, 0.12);
+      border: 1px solid rgba(0, 149, 255, 0.25);
+      color: #33b0ff;
+    }
+
+    .badge-enrolled {
+      background: rgba(46, 213, 115, 0.12);
+      border: 1px solid rgba(46, 213, 115, 0.25);
+      color: #2ed573;
+    }
+
+    .badge-rejected {
+      background: rgba(255, 71, 87, 0.12);
+      border: 1px solid rgba(255, 71, 87, 0.25);
+      color: #ff4757;
+    }
+
+    .lead-time {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .lead-details-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      font-size: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lead-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .lead-detail-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .lead-detail-value {
+      color: var(--text-soft);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lead-detail-value.link {
+      color: var(--orange);
+      transition: color 0.2s;
+    }
+
+    .lead-detail-value.link:hover {
+      color: var(--orange-2);
+      text-decoration: underline;
+    }
+
+    .lead-comment-box {
+      font-size: 14px;
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--orange);
+      padding: 8px 12px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 20px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Actions */
+    .lead-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn-action {
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-soft);
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-action:hover {
+      background: var(--surface-2);
+      border-color: var(--border-strong);
+      color: var(--text);
+    }
+
+    .btn-action.btn-contacted:hover {
+      border-color: rgba(0, 149, 255, 0.4);
+      color: #33b0ff;
+    }
+
+    .btn-action.btn-enrolled:hover {
+      border-color: rgba(46, 213, 115, 0.4);
+      color: #2ed573;
+    }
+
+    .btn-action.btn-rejected:hover {
+      border-color: rgba(255, 71, 87, 0.4);
+      color: #ff4757;
+    }
+
+    .btn-delete-icon {
+      margin-left: auto;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text-dim);
+      padding: 8px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s;
+    }
+
+    .btn-delete-icon:hover {
+      color: #ff4757;
+      background: rgba(255, 71, 87, 0.1);
+    }
+
+    /* Loading overlay inside cards or page */
+    .global-loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0;
+      color: var(--text-soft);
+      gap: 16px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--text-dim);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .error-toast {
+      background: rgba(255, 77, 77, 0.1);
+      border: 1px solid rgba(255, 77, 77, 0.25);
+      color: #ff4d4d;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-size: 14.5px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .alert-banner {
+      background: rgba(255, 122, 0, 0.1);
+      border: 1px solid rgba(255, 122, 0, 0.25);
+      color: var(--orange-2);
+      padding: 16px;
+      border-radius: var(--radius);
+      margin-bottom: 28px;
+      font-size: 14.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ============ BACKGROUND DECOR ============ -->
+  <div class="bg-decor" aria-hidden="true">
+    <div class="blur-orb orb-1"></div>
+    <div class="blur-orb orb-2"></div>
+    <div class="blur-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Applikata">
+        <img src="assets/logo.png" alt="Applikata" class="brand-logo" width="34" height="34" />
+        <span class="brand-name">applikata</span>
+      </a>
+
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch">
+          <button data-lang="uz" class="active">UZ</button>
+          <button data-lang="ru">RU</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <button id="navLogout" class="btn btn-ghost btn-sm" style="display: none;" data-i18n="admin.logout">Chiqish</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="container">
+
+      <!-- ============ LOGIN CONTAINER ============ -->
+      <div class="login-container" id="loginContainer">
+        <div class="apply-card glass">
+          <div class="apply-head">
+            <span class="eyebrow" data-i18n="admin.login.eyebrow">Xavfsiz kirish</span>
+            <h2 data-i18n="admin.login.title">Tizimga kirish</h2>
+            <p data-i18n="admin.login.subtitle">Admin panelga kirish uchun ma'lumotlarni kiriting</p>
+          </div>
+
+          <div class="error-toast" id="loginError"></div>
+
+          <form class="apply-form" id="loginForm" novalidate>
+            <div class="field">
+              <label data-i18n="admin.login.email">Email</label>
+              <input type="email" name="email" required placeholder="admin@applikata.uz" />
+            </div>
+            <div class="field">
+              <label data-i18n="admin.login.password">Parol</label>
+              <input type="password" name="password" required placeholder="••••••••" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="loginSubmit">
+              <span class="btn-label" data-i18n="admin.login.submit">Kirish</span>
+              <span class="btn-spinner" hidden></span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============ DASHBOARD CONTAINER ============ -->
+      <div class="dashboard-container" id="dashboardContainer">
+        
+        <!-- Header info -->
+        <div class="admin-header-bar">
+          <div class="admin-title-group">
+            <h1 data-i18n="admin.dashboard.title">Landing arizalari</h1>
+            <p data-i18n="admin.dashboard.subtitle">Lending sahifasidan kelib tushgan arizalar ro'yxati</p>
+          </div>
+          <div class="admin-user-info glass" style="padding: 8px 18px; border-radius: 999px;">
+            <div class="admin-user-details">
+              <div class="admin-user-name" id="profileName">Admin</div>
+              <div class="admin-user-role" id="profileRole">Staff</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="error-toast" id="dashboardError"></div>
+
+        <!-- Filter and Search -->
+        <div class="filter-bar">
+          <div class="filter-pills" id="filterPills">
+            <button class="filter-pill active" data-filter="all" data-i18n="admin.filter.all">Barchasi</button>
+            <button class="filter-pill" data-filter="new" data-i18n="admin.filter.new">Yangi</button>
+            <button class="filter-pill" data-filter="contacted" data-i18n="admin.filter.contacted">Sвязались</button>
+            <button class="filter-pill" data-filter="enrolled" data-i18n="admin.filter.enrolled">Зачислены</button>
+            <button class="filter-pill" data-filter="rejected" data-i18n="admin.filter.rejected">Отклонены</button>
+          </div>
+          <div class="stats-summary" id="statsSummary">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Leads List -->
+        <div class="leads-grid" id="leadsGrid">
+          <div class="global-loader">
+            <div class="btn-spinner" style="width: 32px; height: 32px;"></div>
+            <span data-i18n="admin.loading">Arizalar yuklanmoqda...</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="year"></span> Applikata. <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (Firebase modular via CDN) ============ -->
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
