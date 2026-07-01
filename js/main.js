@@ -3,7 +3,7 @@
    Orchestrates i18n, dynamic rendering, animations & the form.
    ============================================================ */
 
-import { translations, content } from './i18n.js';
+import { translations, content } from './i18n.js?v=2';
 import { saveApplication } from './firebase-config.js';
 
 const SUPPORTED = ['uz', 'ru', 'en'];
