@@ -49,11 +49,13 @@ export const translations = {
 
     'contact.eyebrow': 'Aloqa', 'contact.title': "Biz bilan bog'laning",
     'contact.subtitle': "Savollaringiz bormi? Biz har doim yordam berishga tayyormiz.",
-    'contact.addr': 'Manzil', 'contact.phone': 'Telefon', 'contact.hours': 'Ish vaqti',
-    'contact.hoursVal': 'Dush–Shan: 9:00 – 20:00',
+    'contact.addr': 'Manzil', 'contact.addrVal': "Nukus, J. Aymurzaev ko'chasi 83",
+    'contact.phone': 'Telefon', 'contact.hours': 'Ish vaqti',
+    'contact.hoursVal': 'Dush–Yak: 8:00 – 22:00',
 
-    'footer.tagline': "Zamonaviy ta'lim markazi. Bilim — kelajak kaliti.",
+    'footer.tagline': "Tizim, Bilim, Natija.",
     'footer.nav': "Bo'limlar", 'footer.platform': 'Platforma', 'footer.contact': 'Aloqa',
+    'footer.city': "Nukus, Qoraqalpog'iston",
     'footer.rights': 'Barcha huquqlar himoyalangan.',
   },
 
@@ -103,11 +105,13 @@ export const translations = {
 
     'contact.eyebrow': 'Контакты', 'contact.title': 'Свяжитесь с нами',
     'contact.subtitle': 'Есть вопросы? Мы всегда готовы помочь.',
-    'contact.addr': 'Адрес', 'contact.phone': 'Телефон', 'contact.hours': 'Время работы',
-    'contact.hoursVal': 'Пн–Сб: 9:00 – 20:00',
+    'contact.addr': 'Адрес', 'contact.addrVal': 'Нукус, улица Аймурзаева 83',
+    'contact.phone': 'Телефон', 'contact.hours': 'Время работы',
+    'contact.hoursVal': 'Пн–Вс: 8:00 – 22:00',
 
-    'footer.tagline': 'Современный образовательный центр. Знание — ключ к будущему.',
+    'footer.tagline': 'Система, Знание, Результат.',
     'footer.nav': 'Разделы', 'footer.platform': 'Платформа', 'footer.contact': 'Контакты',
+    'footer.city': 'Нукус, Каракалпакстан',
     'footer.rights': 'Все права защищены.',
   },
 
@@ -157,11 +161,13 @@ export const translations = {
 
     'contact.eyebrow': 'Contact', 'contact.title': 'Get in touch',
     'contact.subtitle': 'Have questions? We are always ready to help.',
-    'contact.addr': 'Address', 'contact.phone': 'Phone', 'contact.hours': 'Working hours',
-    'contact.hoursVal': 'Mon–Sat: 9:00 – 20:00',
+    'contact.addr': 'Address', 'contact.addrVal': '83 Aymurzaev Street, Nukus',
+    'contact.phone': 'Phone', 'contact.hours': 'Working hours',
+    'contact.hoursVal': 'Mon–Sun: 8:00 – 22:00',
 
-    'footer.tagline': 'Modern education center. Knowledge is the key to the future.',
+    'footer.tagline': 'System, Knowledge, Result.',
     'footer.nav': 'Sections', 'footer.platform': 'Platform', 'footer.contact': 'Contact',
+    'footer.city': 'Nukus, Karakalpakstan',
     'footer.rights': 'All rights reserved.',
   },
 };
